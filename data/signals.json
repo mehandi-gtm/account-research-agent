@@ -1,0 +1,591 @@
+{
+  "ravenpathlabs.example": [],
+  "lumenwavesystems.example": [],
+  "graniteworks.example": [
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new analytics product line",
+      "strength": 1,
+      "date": "2026-08-02"
+    }
+  ],
+  "amberpathsystems.example": [
+    {
+      "type": "new_sales_leader",
+      "source": "linkedin_post",
+      "detail": "Hired a new Head of Sales",
+      "strength": 3,
+      "date": "2026-09-12"
+    },
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new enterprise product line",
+      "strength": 1,
+      "date": "2026-07-31"
+    }
+  ],
+  "larkcraft.example": [
+    {
+      "type": "new_sales_leader",
+      "source": "linkedin_post",
+      "detail": "Hired a new VP Sales",
+      "strength": 3,
+      "date": "2026-11-11"
+    },
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new AI assistant product line",
+      "strength": 1,
+      "date": "2026-10-20"
+    },
+    {
+      "type": "market_expansion",
+      "source": "press_release",
+      "detail": "Launched in the DACH region",
+      "strength": 2,
+      "date": "2026-08-27"
+    }
+  ],
+  "pylonwavehq.example": [],
+  "zephyrworksco.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Pipedrive to Salesforce",
+      "strength": 2,
+      "date": "2026-11-20"
+    },
+    {
+      "type": "new_sales_leader",
+      "source": "linkedin_post",
+      "detail": "Hired a new CRO",
+      "strength": 3,
+      "date": "2026-10-27"
+    }
+  ],
+  "juniperwave.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Pipedrive to Salesforce",
+      "strength": 2,
+      "date": "2026-10-25"
+    },
+    {
+      "type": "market_expansion",
+      "source": "press_release",
+      "detail": "Launched in the UK",
+      "strength": 2,
+      "date": "2026-08-16"
+    }
+  ],
+  "prismfield.example": [
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 6 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-08-17"
+    }
+  ],
+  "ravengrid.example": [],
+  "onyxshiftsystems.example": [
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-07-31"
+    }
+  ],
+  "nimbusloop.example": [
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new AI assistant product line",
+      "strength": 1,
+      "date": "2026-08-05"
+    }
+  ],
+  "ravenworks.example": [
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 4 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-10-03"
+    },
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series A round",
+      "strength": 3,
+      "date": "2026-09-29"
+    },
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Zoho CRM to HubSpot",
+      "strength": 2,
+      "date": "2026-08-27"
+    }
+  ],
+  "vesperforgehq.example": [
+    {
+      "type": "market_expansion",
+      "source": "press_release",
+      "detail": "Launched in the Nordics",
+      "strength": 2,
+      "date": "2026-11-17"
+    },
+    {
+      "type": "headcount_growth",
+      "source": "linkedin_post",
+      "detail": "Headcount up 55% in 6 months",
+      "strength": 2,
+      "date": "2026-09-08"
+    }
+  ],
+  "graniteflowlabs.example": [
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new AI assistant product line",
+      "strength": 1,
+      "date": "2026-10-21"
+    },
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-08-17"
+    }
+  ],
+  "indigomint.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Zoho CRM to HubSpot",
+      "strength": 2,
+      "date": "2026-11-20"
+    }
+  ],
+  "lumencraftco.example": [
+    {
+      "type": "market_expansion",
+      "source": "press_release",
+      "detail": "Launched in the UK",
+      "strength": 2,
+      "date": "2026-10-10"
+    },
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new AI assistant product line",
+      "strength": 1,
+      "date": "2026-08-17"
+    },
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series B round",
+      "strength": 3,
+      "date": "2026-08-02"
+    }
+  ],
+  "ravenstack.example": [
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series B round",
+      "strength": 3,
+      "date": "2026-09-07"
+    }
+  ],
+  "ambercrafthq.example": [
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-11-01"
+    }
+  ],
+  "nimbusforgesystems.example": [
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series B round",
+      "strength": 3,
+      "date": "2026-10-21"
+    },
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new analytics product line",
+      "strength": 1,
+      "date": "2026-10-08"
+    }
+  ],
+  "zephyryardlabs.example": [
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-08-20"
+    }
+  ],
+  "zephyrshiftco.example": [],
+  "birchstackhq.example": [
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 3 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-08-15"
+    }
+  ],
+  "nimbuspointco.example": [
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series A round",
+      "strength": 3,
+      "date": "2026-10-15"
+    }
+  ],
+  "willowcraftsystems.example": [
+    {
+      "type": "headcount_growth",
+      "source": "linkedin_post",
+      "detail": "Headcount up 53% in 6 months",
+      "strength": 2,
+      "date": "2026-11-15"
+    },
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Zoho CRM to Salesforce",
+      "strength": 2,
+      "date": "2026-09-21"
+    },
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 5 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-08-26"
+    }
+  ],
+  "quillmint.example": [
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new analytics product line",
+      "strength": 1,
+      "date": "2026-08-14"
+    }
+  ],
+  "maplebeamco.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Pipedrive to Salesforce",
+      "strength": 2,
+      "date": "2026-09-22"
+    },
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-08-06"
+    }
+  ],
+  "pylonlane.example": [
+    {
+      "type": "headcount_growth",
+      "source": "linkedin_post",
+      "detail": "Headcount up 27% in 6 months",
+      "strength": 2,
+      "date": "2026-08-23"
+    }
+  ],
+  "harborflow.example": [
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-11-16"
+    },
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 3 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-09-02"
+    }
+  ],
+  "tidalfield.example": [
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series A round",
+      "strength": 3,
+      "date": "2026-09-03"
+    }
+  ],
+  "mossflowhq.example": [
+    {
+      "type": "headcount_growth",
+      "source": "linkedin_post",
+      "detail": "Headcount up 51% in 6 months",
+      "strength": 2,
+      "date": "2026-10-06"
+    }
+  ],
+  "saffroncraftsystems.example": [
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 4 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-10-10"
+    }
+  ],
+  "zephyryard.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Zoho CRM to Salesforce",
+      "strength": 2,
+      "date": "2026-11-15"
+    },
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 4 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-10-23"
+    },
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-10-03"
+    }
+  ],
+  "birchcraftlabs.example": [],
+  "onyxpointco.example": [
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 3 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-10-24"
+    },
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new self-serve product line",
+      "strength": 1,
+      "date": "2026-09-12"
+    },
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Seed round",
+      "strength": 3,
+      "date": "2026-08-11"
+    }
+  ],
+  "fjordpointhq.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from a spreadsheet to HubSpot",
+      "strength": 2,
+      "date": "2026-09-02"
+    },
+    {
+      "type": "market_expansion",
+      "source": "press_release",
+      "detail": "Launched in the DACH region",
+      "strength": 2,
+      "date": "2026-07-27"
+    }
+  ],
+  "umbershiftsystems.example": [
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-11-09"
+    }
+  ],
+  "nimbuspathsystems.example": [
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 4 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-10-28"
+    },
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Seed round",
+      "strength": 3,
+      "date": "2026-08-28"
+    },
+    {
+      "type": "market_expansion",
+      "source": "press_release",
+      "detail": "Launched in the Nordics",
+      "strength": 2,
+      "date": "2026-08-04"
+    }
+  ],
+  "mossgridhq.example": [
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Seed round",
+      "strength": 3,
+      "date": "2026-09-27"
+    }
+  ],
+  "pylonmintlabs.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from a spreadsheet to HubSpot",
+      "strength": 2,
+      "date": "2026-10-29"
+    }
+  ],
+  "emberflowhq.example": [
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new enterprise product line",
+      "strength": 1,
+      "date": "2026-08-04"
+    }
+  ],
+  "deltapointlabs.example": [],
+  "emberline.example": [
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-11-13"
+    }
+  ],
+  "lumenbeam.example": [
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Pipedrive to HubSpot",
+      "strength": 2,
+      "date": "2026-09-25"
+    },
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 6 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-09-24"
+    }
+  ],
+  "onyxbeamhq.example": [
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series B round",
+      "strength": 3,
+      "date": "2026-08-23"
+    }
+  ],
+  "vesperflow.example": [
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 3 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-10-05"
+    },
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series B round",
+      "strength": 3,
+      "date": "2026-10-03"
+    }
+  ],
+  "vesperpointlabs.example": [],
+  "fablewaveco.example": [
+    {
+      "type": "product_launch",
+      "source": "press_release",
+      "detail": "Launched a new enterprise product line",
+      "strength": 1,
+      "date": "2026-11-08"
+    },
+    {
+      "type": "crm_change",
+      "source": "tech_change",
+      "detail": "Moved from Pipedrive to Salesforce",
+      "strength": 2,
+      "date": "2026-09-21"
+    },
+    {
+      "type": "funding",
+      "source": "press_release",
+      "detail": "Announced a Series A round",
+      "strength": 3,
+      "date": "2026-09-17"
+    }
+  ],
+  "onyxloop.example": [
+    {
+      "type": "headcount_growth",
+      "source": "linkedin_post",
+      "detail": "Headcount up 60% in 6 months",
+      "strength": 2,
+      "date": "2026-11-02"
+    },
+    {
+      "type": "hiring_sdrs",
+      "source": "job_post",
+      "detail": "Posted 4 open SDR/BDR roles",
+      "strength": 3,
+      "date": "2026-08-27"
+    }
+  ],
+  "vesperfieldhq.example": [
+    {
+      "type": "revops_hire",
+      "source": "job_post",
+      "detail": "Hiring a first RevOps / GTM Engineer",
+      "strength": 3,
+      "date": "2026-10-28"
+    },
+    {
+      "type": "new_sales_leader",
+      "source": "linkedin_post",
+      "detail": "Hired a new VP Sales",
+      "strength": 3,
+      "date": "2026-08-11"
+    }
+  ]
+}

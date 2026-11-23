@@ -1,0 +1,51 @@
+account_id,company_name,icp_tier,icp_score,score_firmographic,score_signals,score_lookalike,lookalike_similarity,top_signal,qa_status,qa_attempt,first_line
+ACC-001,Ravenpath Labs,C,3,3,0,0,0.648,,skipped,0,
+ACC-002,Lumenwave Systems,C,18,18,0,0,0.638,,skipped,0,
+ACC-003,Graniteworks,C,23,20,1,2,0.657,Launched a new analytics product line (2026-08-02),skipped,0,
+ACC-004,Amberpath Systems,A,79,45,6,28,0.74,Hired a new Head of Sales (2026-09-12),pass,1,"Amberpath Systems' new Head of Sales, announced on LinkedIn on September 12, will likely need steady outbound pipeline with shippers and 3PLs."
+ACC-005,Larkcraft,A,79,45,15,19,0.711,Hired a new VP Sales (2026-11-11),pass,2,"With Larkcraft's new VP Sales announced on LinkedIn on November 11, you may soon be asked to build outbound pipeline quickly."
+ACC-006,Pylonwave HQ,C,33,26,0,7,0.673,,skipped,0,
+ACC-007,Zephyrworks Co,C,39,10,15,14,0.696,Hired a new CRO (2026-10-27),skipped,0,
+ACC-008,Juniperwave,A,80,45,9,26,0.734,Moved from Pipedrive to Salesforce (2026-10-25),pass,1,"Juniperwave's reported move from Pipedrive to Salesforce, following the August UK launch, suggests the sales team is building process for a new market."
+ACC-009,Prismfield,C,27,18,3,6,0.669,Posted 6 open SDR/BDR roles (2026-08-17),skipped,0,
+ACC-010,Ravengrid,C,23,16,0,7,0.673,,skipped,0,
+ACC-011,Onyxshift Systems,C,31,22,3,6,0.669,Hiring a first RevOps / GTM Engineer (2026-07-31),skipped,0,
+ACC-012,Nimbusloop,C,11,10,1,0,0.651,Launched a new AI assistant product line (2026-08-05),skipped,0,
+ACC-013,Ravenworks,A,82,45,15,22,0.723,Posted 4 open SDR/BDR roles (2026-10-03),pass,1,"Ravenworks posting four open SDR/BDR roles on October 3 suggests outbound is becoming a bigger priority, and new reps usually take time to ramp."
+ACC-014,Vesperforge HQ,A,85,45,12,28,0.742,Launched in the Nordics (2026-11-17),pass,1,"Vesperforge HQ's Nordic launch, announced November 17, means building shipper and 3PL pipeline in a market where the team is starting fresh."
+ACC-015,Graniteflow Labs,C,37,21,6,10,0.682,Hiring a first RevOps / GTM Engineer (2026-08-17),skipped,0,
+ACC-016,Indigomint,A,72,40,10,22,0.72,Moved from Zoho CRM to HubSpot (2026-11-20),pass,1,"Indigomint's move from Zoho CRM to HubSpot on 2026-11-20 is a big change, and keeping new prospects flowing while the team adjusts can slip."
+ACC-017,Lumencraft Co,A,80,45,9,26,0.734,Announced a Series B round (2026-08-02),pass,1,"Lumencraft Co's Series B announcement on 2026-08-02, alongside the new UK launch, suggests outbound pipeline in a market you just entered is a priority."
+ACC-018,Ravenstack,C,13,8,5,0,0.65,Announced a Series B round (2026-09-07),skipped,0,
+ACC-019,Ambercraft HQ,A,76,35,11,30,0.748,Hiring a first RevOps / GTM Engineer (2026-11-01),pass,2,"Ambercraft HQ's job post for a first RevOps / GTM Engineer suggests you're formalizing revenue operations, and outbound may need coverage meanwhile."
+ACC-020,Nimbusforge Systems,A,77,45,11,21,0.717,Announced a Series B round (2026-10-21),pass,1,Nimbusforge Systems' Series B announcement on October 21 raises the question of how fast that funding turns into meetings with shippers and 3PLs.
+ACC-021,Zephyryard Labs,B,59,41,3,15,0.7,Hiring a first RevOps / GTM Engineer (2026-08-20),pass,1,"Zephyryard Labs is hiring its first RevOps / GTM Engineer, so pipeline generation may need cover while that function gets built."
+ACC-022,Zephyrshift Co,C,16,7,0,9,0.68,,skipped,0,
+ACC-023,Birchstack HQ,C,43,26,3,14,0.695,Posted 3 open SDR/BDR roles (2026-08-15),skipped,0,
+ACC-024,Nimbuspoint Co,B,68,31,8,29,0.744,Announced a Series A round (2026-10-15),pass,1,"After Nimbuspoint Co's funding announcement on October 15, turning webinar and event attendance into outbound pipeline in Zoho CRM may be a priority."
+ACC-025,Willowcraft Systems,A,75,40,15,20,0.715,Posted 5 open SDR/BDR roles (2026-08-26),pass,1,"Willowcraft Systems opened 5 SDR/BDR roles on August 26, and new reps usually need months before they book qualified meetings at full pace."
+ACC-026,Quillmint,B,49,30,1,18,0.71,Launched a new analytics product line (2026-08-14),pass,1,"Quillmint's new analytics product line, announced August 14, will need buyers and pilot partners, and building that outbound pipeline likely lands on your desk."
+ACC-027,Maplebeam Co,C,34,10,7,17,0.705,Hiring a first RevOps / GTM Engineer (2026-08-06),skipped,0,
+ACC-028,Pylonlane,C,16,13,2,1,0.654,Headcount up 27% in 6 months (2026-08-23),skipped,0,
+ACC-029,Harborflow,C,24,3,15,6,0.671,Hiring a first RevOps / GTM Engineer (2026-11-16),skipped,0,
+ACC-030,Tidalfield,A,77,42,4,31,0.75,Announced a Series A round (2026-09-03),pass,1,"Tidalfield announced a Series A on September 3, and adding sales-led outbound alongside your self-serve API monitoring motion is often the next step, Oskar."
+ACC-031,Mossflow HQ,B,62,36,5,21,0.717,Headcount up 51% in 6 months (2026-10-06),pass,2,"Mossflow HQ's headcount rose 51% in six months, and growth that fast usually means pipeline targets outrun what manual prospecting can cover."
+ACC-032,Saffroncraft Systems,C,36,16,8,12,0.688,Posted 4 open SDR/BDR roles (2026-10-10),skipped,0,
+ACC-033,Zephyryard,B,49,20,15,14,0.697,Posted 4 open SDR/BDR roles (2026-10-23),pass,2,"Zephyryard has four open SDR/BDR roles posted on 2026-10-23, plus a first RevOps/GTM Engineer hire underway on a freshly migrated Salesforce stack."
+ACC-034,Birchcraft Labs,C,27,23,0,4,0.663,,skipped,0,
+ACC-035,Onyxpoint Co,A,89,45,14,30,0.749,Posted 3 open SDR/BDR roles (2026-10-24),pass,1,"Onyxpoint Co posting 3 open SDR/BDR roles suggests outbound is scaling, and that usually puts pressure on sales ops to keep ramp and process consistent."
+ACC-036,Fjordpoint HQ,B,50,33,4,13,0.691,Moved from a spreadsheet to HubSpot (2026-09-02),pass,1,Fjordpoint HQ moving from a spreadsheet to HubSpot on September 2 means Clara's team is now building revenue processes inside a real CRM.
+ACC-037,Umbershift Systems,B,58,26,12,20,0.715,Hiring a first RevOps / GTM Engineer (2026-11-09),pass,2,"Umbershift Systems is hiring its first RevOps / GTM Engineer, so who handles prospecting and list building while that person ramps up?"
+ACC-038,Nimbuspath Systems,A,79,45,15,19,0.712,Posted 4 open SDR/BDR roles (2026-10-28),pass,1,"Nimbuspath Systems posting four SDR/BDR roles on October 28 suggests an outbound build-out, and compliance buyers won't wait while those reps are hired and ramped."
+ACC-039,Mossgrid HQ,C,26,17,6,3,0.659,Announced a Seed round (2026-09-27),skipped,0,
+ACC-040,Pylonmint Labs,C,30,18,7,5,0.665,Moved from a spreadsheet to HubSpot (2026-10-29),skipped,0,
+ACC-041,Emberflow HQ,A,75,45,1,29,0.745,Launched a new enterprise product line (2026-08-04),pass,1,Emberflow HQ's August 4 launch of a new enterprise product line means your team now needs conversations with enterprise compliance buyers.
+ACC-042,Deltapoint Labs,B,53,31,0,22,0.722,,pass,1,"Deltapoint Labs sells freight visibility software to both shippers and 3PLs, two distinct buyer groups that each need a steady flow of qualified meetings."
+ACC-043,Emberline,A,74,45,13,16,0.702,Hiring a first RevOps / GTM Engineer (2026-11-13),needs_review,2,"Emberline posting its first RevOps / GTM Engineer role on 2026-11-13 suggests outbound is still unowned, so the new hire may start without a working prospecting motion."
+ACC-044,Lumenbeam,A,93,45,10,38,0.773,Posted 6 open SDR/BDR roles (2026-09-24),pass,1,"Lumenbeam posting six SDR/BDR roles on September 24 suggests you're building out outbound, and new reps usually take time to ramp into steady meetings."
+ACC-045,Onyxbeam HQ,A,76,45,4,27,0.739,Announced a Series B round (2026-08-23),pass,1,"With Onyxbeam HQ's Series B announced on August 23, I'm curious how you plan to turn that funding into more shipper and 3PL pipeline."
+ACC-046,Vesperflow,C,28,3,14,11,0.685,Posted 3 open SDR/BDR roles (2026-10-05),skipped,0,
+ACC-047,Vesperpoint Labs,C,6,3,0,3,0.66,,skipped,0,
+ACC-048,Fablewave Co,A,81,45,13,23,0.724,Announced a Series A round (2026-09-17),pass,1,Fablewave Co's Series A on 2026-09-17 puts pressure on Revenue Operations to build steady outbound pipeline toward shippers and 3PLs buying freight visibility software.
+ACC-049,Onyxloop,A,77,45,11,21,0.718,Posted 4 open SDR/BDR roles (2026-08-27),pass,1,Onyxloop opening four SDR/BDR roles on August 27 suggests outbound pipeline for your invoice automation product could get stretched while new reps ramp.
+ACC-050,Vesperfield HQ,A,73,35,13,25,0.73,Hiring a first RevOps / GTM Engineer (2026-10-28),pass,2,"Vesperfield HQ is hiring its first RevOps / GTM Engineer with a new VP Sales in place, so outbound prospecting may need cover meanwhile."

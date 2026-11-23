@@ -1,0 +1,844 @@
+{
+  "name": "ARA - Account research agent",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "2452dac8-7bc9-465f-805f-3a5ffd1dc2c2",
+      "name": "Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Fictional buying signals, same data as data/signals.json in the repo (compacted).\n// Once the repo is public, swap this node for an HTTP Request to the raw signals.json.\nconst C = {\"graniteworks.example\":[[\"product_launch\",\"press_release\",\"Launched a new analytics product line\",1,\"2026-08-02\"]],\"amberpathsystems.example\":[[\"new_sales_leader\",\"linkedin_post\",\"Hired a new Head of Sales\",3,\"2026-09-12\"],[\"product_launch\",\"press_release\",\"Launched a new enterprise product line\",1,\"2026-07-31\"]],\"larkcraft.example\":[[\"new_sales_leader\",\"linkedin_post\",\"Hired a new VP Sales\",3,\"2026-11-11\"],[\"product_launch\",\"press_release\",\"Launched a new AI assistant product line\",1,\"2026-10-20\"],[\"market_expansion\",\"press_release\",\"Launched in the DACH region\",2,\"2026-08-27\"]],\"zephyrworksco.example\":[[\"crm_change\",\"tech_change\",\"Moved from Pipedrive to Salesforce\",2,\"2026-11-20\"],[\"new_sales_leader\",\"linkedin_post\",\"Hired a new CRO\",3,\"2026-10-27\"]],\"juniperwave.example\":[[\"crm_change\",\"tech_change\",\"Moved from Pipedrive to Salesforce\",2,\"2026-10-25\"],[\"market_expansion\",\"press_release\",\"Launched in the UK\",2,\"2026-08-16\"]],\"prismfield.example\":[[\"hiring_sdrs\",\"job_post\",\"Posted 6 open SDR/BDR roles\",3,\"2026-08-17\"]],\"onyxshiftsystems.example\":[[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-07-31\"]],\"nimbusloop.example\":[[\"product_launch\",\"press_release\",\"Launched a new AI assistant product line\",1,\"2026-08-05\"]],\"ravenworks.example\":[[\"hiring_sdrs\",\"job_post\",\"Posted 4 open SDR/BDR roles\",3,\"2026-10-03\"],[\"funding\",\"press_release\",\"Announced a Series A round\",3,\"2026-09-29\"],[\"crm_change\",\"tech_change\",\"Moved from Zoho CRM to HubSpot\",2,\"2026-08-27\"]],\"vesperforgehq.example\":[[\"market_expansion\",\"press_release\",\"Launched in the Nordics\",2,\"2026-11-17\"],[\"headcount_growth\",\"linkedin_post\",\"Headcount up 55% in 6 months\",2,\"2026-09-08\"]],\"graniteflowlabs.example\":[[\"product_launch\",\"press_release\",\"Launched a new AI assistant product line\",1,\"2026-10-21\"],[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-08-17\"]],\"indigomint.example\":[[\"crm_change\",\"tech_change\",\"Moved from Zoho CRM to HubSpot\",2,\"2026-11-20\"]],\"lumencraftco.example\":[[\"market_expansion\",\"press_release\",\"Launched in the UK\",2,\"2026-10-10\"],[\"product_launch\",\"press_release\",\"Launched a new AI assistant product line\",1,\"2026-08-17\"],[\"funding\",\"press_release\",\"Announced a Series B round\",3,\"2026-08-02\"]],\"ravenstack.example\":[[\"funding\",\"press_release\",\"Announced a Series B round\",3,\"2026-09-07\"]],\"ambercrafthq.example\":[[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-11-01\"]],\"nimbusforgesystems.example\":[[\"funding\",\"press_release\",\"Announced a Series B round\",3,\"2026-10-21\"],[\"product_launch\",\"press_release\",\"Launched a new analytics product line\",1,\"2026-10-08\"]],\"zephyryardlabs.example\":[[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-08-20\"]],\"birchstackhq.example\":[[\"hiring_sdrs\",\"job_post\",\"Posted 3 open SDR/BDR roles\",3,\"2026-08-15\"]],\"nimbuspointco.example\":[[\"funding\",\"press_release\",\"Announced a Series A round\",3,\"2026-10-15\"]],\"willowcraftsystems.example\":[[\"headcount_growth\",\"linkedin_post\",\"Headcount up 53% in 6 months\",2,\"2026-11-15\"],[\"crm_change\",\"tech_change\",\"Moved from Zoho CRM to Salesforce\",2,\"2026-09-21\"],[\"hiring_sdrs\",\"job_post\",\"Posted 5 open SDR/BDR roles\",3,\"2026-08-26\"]],\"quillmint.example\":[[\"product_launch\",\"press_release\",\"Launched a new analytics product line\",1,\"2026-08-14\"]],\"maplebeamco.example\":[[\"crm_change\",\"tech_change\",\"Moved from Pipedrive to Salesforce\",2,\"2026-09-22\"],[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-08-06\"]],\"pylonlane.example\":[[\"headcount_growth\",\"linkedin_post\",\"Headcount up 27% in 6 months\",2,\"2026-08-23\"]],\"harborflow.example\":[[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-11-16\"],[\"hiring_sdrs\",\"job_post\",\"Posted 3 open SDR/BDR roles\",3,\"2026-09-02\"]],\"tidalfield.example\":[[\"funding\",\"press_release\",\"Announced a Series A round\",3,\"2026-09-03\"]],\"mossflowhq.example\":[[\"headcount_growth\",\"linkedin_post\",\"Headcount up 51% in 6 months\",2,\"2026-10-06\"]],\"saffroncraftsystems.example\":[[\"hiring_sdrs\",\"job_post\",\"Posted 4 open SDR/BDR roles\",3,\"2026-10-10\"]],\"zephyryard.example\":[[\"crm_change\",\"tech_change\",\"Moved from Zoho CRM to Salesforce\",2,\"2026-11-15\"],[\"hiring_sdrs\",\"job_post\",\"Posted 4 open SDR/BDR roles\",3,\"2026-10-23\"],[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-10-03\"]],\"onyxpointco.example\":[[\"hiring_sdrs\",\"job_post\",\"Posted 3 open SDR/BDR roles\",3,\"2026-10-24\"],[\"product_launch\",\"press_release\",\"Launched a new self-serve product line\",1,\"2026-09-12\"],[\"funding\",\"press_release\",\"Announced a Seed round\",3,\"2026-08-11\"]],\"fjordpointhq.example\":[[\"crm_change\",\"tech_change\",\"Moved from a spreadsheet to HubSpot\",2,\"2026-09-02\"],[\"market_expansion\",\"press_release\",\"Launched in the DACH region\",2,\"2026-07-27\"]],\"umbershiftsystems.example\":[[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-11-09\"]],\"nimbuspathsystems.example\":[[\"hiring_sdrs\",\"job_post\",\"Posted 4 open SDR/BDR roles\",3,\"2026-10-28\"],[\"funding\",\"press_release\",\"Announced a Seed round\",3,\"2026-08-28\"],[\"market_expansion\",\"press_release\",\"Launched in the Nordics\",2,\"2026-08-04\"]],\"mossgridhq.example\":[[\"funding\",\"press_release\",\"Announced a Seed round\",3,\"2026-09-27\"]],\"pylonmintlabs.example\":[[\"crm_change\",\"tech_change\",\"Moved from a spreadsheet to HubSpot\",2,\"2026-10-29\"]],\"emberflowhq.example\":[[\"product_launch\",\"press_release\",\"Launched a new enterprise product line\",1,\"2026-08-04\"]],\"emberline.example\":[[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-11-13\"]],\"lumenbeam.example\":[[\"crm_change\",\"tech_change\",\"Moved from Pipedrive to HubSpot\",2,\"2026-09-25\"],[\"hiring_sdrs\",\"job_post\",\"Posted 6 open SDR/BDR roles\",3,\"2026-09-24\"]],\"onyxbeamhq.example\":[[\"funding\",\"press_release\",\"Announced a Series B round\",3,\"2026-08-23\"]],\"vesperflow.example\":[[\"hiring_sdrs\",\"job_post\",\"Posted 3 open SDR/BDR roles\",3,\"2026-10-05\"],[\"funding\",\"press_release\",\"Announced a Series B round\",3,\"2026-10-03\"]],\"fablewaveco.example\":[[\"product_launch\",\"press_release\",\"Launched a new enterprise product line\",1,\"2026-11-08\"],[\"crm_change\",\"tech_change\",\"Moved from Pipedrive to Salesforce\",2,\"2026-09-21\"],[\"funding\",\"press_release\",\"Announced a Series A round\",3,\"2026-09-17\"]],\"onyxloop.example\":[[\"headcount_growth\",\"linkedin_post\",\"Headcount up 60% in 6 months\",2,\"2026-11-02\"],[\"hiring_sdrs\",\"job_post\",\"Posted 4 open SDR/BDR roles\",3,\"2026-08-27\"]],\"vesperfieldhq.example\":[[\"revops_hire\",\"job_post\",\"Hiring a first RevOps / GTM Engineer\",3,\"2026-10-28\"],[\"new_sales_leader\",\"linkedin_post\",\"Hired a new VP Sales\",3,\"2026-08-11\"]]};\nconst out = {};\nfor (const [domain, list] of Object.entries(C)) out[domain] = list.map(([type, source, detail, strength, date]) => ({ type, source, detail, strength, date }));\nreturn [{ json: out }];"
+      },
+      "id": "ee1d79c7-2493-4b63-a7cb-d694f56f298e",
+      "name": "Get Signals",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// 50 fictional accounts, same data as data/accounts.csv in the repo.\n// Once the repo is public, swap this node for HTTP Request (raw CSV) + Extract from File.\n// TEST_IDS: run a few accounts while testing, e.g. ['ACC-004', 'ACC-005']. Empty = all 50.\nconst TEST_IDS = [];\nconst CSV = `account_id,company_name,domain,industry,description,employees,country,region,sales_motion,funding_stage,crm,tech_stack,contact_first_name,contact_last_name,contact_title,contact_email\nACC-001,Ravenpath Labs,ravenpathlabs.example,Marketing Agency,Ravenpath Labs builds paid social campaigns for local businesses.,3901,Japan,Other,Product-led,Bootstrapped,Zoho CRM,Zapier;WordPress;Gong,Dev,Kowalski,CEO,dev.kowalski@ravenpathlabs.example\nACC-002,Lumenwave Systems,lumenwavesystems.example,Manufacturing,Lumenwave Systems builds industrial fasteners for construction suppliers.,14,United States,US,Product-led,Bootstrapped,Zoho CRM,Clay;WordPress;Shopify;Mailchimp,Priya,Rahman,VP Sales,priya.rahman@lumenwavesystems.example\nACC-003,Graniteworks,graniteworks.example,IT Services,Graniteworks builds managed IT support for small offices.,4741,United Kingdom,UK,Sales-led,Bootstrapped,Zoho CRM,Shopify;Segment;Apollo;Outreach;Notion;Zapier,Mateo,Castell,VP Sales,mateo.castell@graniteworks.example\nACC-004,Amberpath Systems,amberpathsystems.example,B2B SaaS - Logistics,Amberpath Systems builds freight visibility software for shippers and 3PLs.,424,Sweden,EU,Hybrid,Series A,Salesforce,Mailchimp;Slack;LinkedIn Sales Navigator;WordPress,Aidan,Moreau,Head of Growth,aidan.moreau@amberpathsystems.example\nACC-005,Larkcraft,larkcraft.example,B2B SaaS - Fintech,Larkcraft builds invoice automation software for mid-market finance teams.,163,United Kingdom,UK,Sales-led,Series B,HubSpot,Intercom;Clay;Zapier;Notion,Imani,Mensah,Head of Revenue Operations,imani.mensah@larkcraft.example\nACC-006,Pylonwave HQ,pylonwavehq.example,Non-profit,Pylonwave HQ builds community education programs for low-income families.,122,Sweden,EU,Sales-led,Bootstrapped,Zoho CRM,WordPress;Snowflake;Zapier;LinkedIn Sales Navigator;Slack,Dev,Brennan,Sales Operations Manager,dev.brennan@pylonwavehq.example\nACC-007,Zephyrworks Co,zephyrworksco.example,Marketing Agency,Zephyrworks Co builds paid social campaigns for local businesses.,6,Sweden,EU,Product-led,Bootstrapped,Spreadsheet,Outreach;Zapier;Shopify;Notion,Leila,Verhoeven,Sales Operations Manager,leila.verhoeven@zephyrworksco.example\nACC-008,Juniperwave,juniperwave.example,B2B SaaS - Logistics,Juniperwave builds freight visibility software for shippers and 3PLs.,416,Denmark,EU,Hybrid,Series A,HubSpot,Segment;Slack;Notion;Gong;Outreach;Shopify,Noor,Sato,Director of Sales,noor.sato@juniperwave.example\nACC-009,Prismfield,prismfield.example,Hospitality,Prismfield builds a chain of boutique hotels for leisure travellers.,12,United Kingdom,UK,Product-led,Series C,Pipedrive,Zapier;Segment;Intercom,Jonas,Novak,Director of Sales,jonas.novak@prismfield.example\nACC-010,Ravengrid,ravengrid.example,Manufacturing,Ravengrid builds industrial fasteners for construction suppliers.,3225,United States,US,Sales-led,Series C,Zoho CRM,WordPress;QuickBooks;Intercom,Freya,Delgado,Head of Growth,freya.delgado@ravengrid.example\nACC-011,Onyxshift Systems,onyxshiftsystems.example,B2B SaaS - Fintech,Onyxshift Systems builds invoice automation software for mid-market finance teams.,1467,South Africa,Other,Product-led,Bootstrapped,Salesforce,Intercom;Slack;QuickBooks;Segment;Mailchimp;Shopify,Ines,Sato,Head of Revenue Operations,ines.sato@onyxshiftsystems.example\nACC-012,Nimbusloop,nimbusloop.example,IT Services,Nimbusloop builds managed IT support for small offices.,7909,Brazil,Other,Sales-led,Bootstrapped,Zoho CRM,Gong;WordPress;Zapier;Apollo;Shopify;Mailchimp,Lukas,Verhoeven,Founder,lukas.verhoeven@nimbusloop.example\nACC-013,Ravenworks,ravenworks.example,B2B SaaS - Fintech,Ravenworks builds invoice automation software for mid-market finance teams.,173,Denmark,EU,Hybrid,Series A,HubSpot,LinkedIn Sales Navigator;QuickBooks;Shopify;Segment;Snowflake;Stripe,Mateo,Rahman,Director of Sales,mateo.rahman@ravenworks.example\nACC-014,Vesperforge HQ,vesperforgehq.example,B2B SaaS - Logistics,Vesperforge HQ builds freight visibility software for shippers and 3PLs.,194,Germany,EU,Hybrid,Seed,Salesforce,Clay;Zapier;Mailchimp;WordPress;QuickBooks;Apollo,Sofia,Moreau,Director of Sales,sofia.moreau@vesperforgehq.example\nACC-015,Graniteflow Labs,graniteflowlabs.example,B2B SaaS - HR Tech,Graniteflow Labs builds a hiring and onboarding platform for fast-growing tech companies.,8,Indonesia,Other,Sales-led,Seed,Zoho CRM,Zapier;Mailchimp;WordPress,Ruben,Castell,VP Sales,ruben.castell@graniteflowlabs.example\nACC-016,Indigomint,indigomint.example,B2B SaaS - HR Tech,Indigomint builds a hiring and onboarding platform for fast-growing tech companies.,827,France,EU,Sales-led,Seed,HubSpot,Snowflake;Gong;QuickBooks;WordPress,Leila,Quinn,Head of Growth,leila.quinn@indigomint.example\nACC-017,Lumencraft Co,lumencraftco.example,B2B SaaS - Martech,Lumencraft Co builds a webinar and event platform for B2B marketing teams.,254,Sweden,EU,Sales-led,Seed,HubSpot,Shopify;Segment;Clay,Tomas,Moreau,Sales Operations Manager,tomas.moreau@lumencraftco.example\nACC-018,Ravenstack,ravenstack.example,E-commerce Brand,Ravenstack builds sustainable home goods for consumers.,13,South Africa,Other,Product-led,Bootstrapped,Pipedrive,Intercom;Zapier;Clay;Gong,Ruben,Delgado,Founder,ruben.delgado@ravenstack.example\nACC-019,Ambercraft HQ,ambercrafthq.example,B2B SaaS - Martech,Ambercraft HQ builds a webinar and event platform for B2B marketing teams.,20,Brazil,Other,Sales-led,Series A,Salesforce,LinkedIn Sales Navigator;Notion;Snowflake,Elena,Okafor,Sales Operations Manager,elena.okafor@ambercrafthq.example\nACC-020,Nimbusforge Systems,nimbusforgesystems.example,B2B SaaS - Logistics,Nimbusforge Systems builds freight visibility software for shippers and 3PLs.,373,United States,US,Hybrid,Series B,Salesforce,Notion;Segment;WordPress;Apollo;Gong;Intercom,Lukas,Quinn,CRO,lukas.quinn@nimbusforgesystems.example\nACC-021,Zephyryard Labs,zephyryardlabs.example,B2B SaaS - HR Tech,Zephyryard Labs builds a hiring and onboarding platform for fast-growing tech companies.,225,Sweden,EU,Sales-led,Bootstrapped,Zoho CRM,Stripe;Clay;QuickBooks;Segment,Leila,Mensah,CRO,leila.mensah@zephyryardlabs.example\nACC-022,Zephyrshift Co,zephyrshiftco.example,IT Services,Zephyrshift Co builds managed IT support for small offices.,5,Japan,Other,Sales-led,Series C,Spreadsheet,Snowflake;Intercom;Apollo,Ava,Varga,Marketing Coordinator,ava.varga@zephyrshiftco.example\nACC-023,Birchstack HQ,birchstackhq.example,E-commerce Brand,Birchstack HQ builds sustainable home goods for consumers.,23,United Kingdom,UK,Hybrid,Series B,Pipedrive,Notion;WordPress;Zapier,Noor,Rahman,VP Sales,noor.rahman@birchstackhq.example\nACC-024,Nimbuspoint Co,nimbuspointco.example,B2B SaaS - Martech,Nimbuspoint Co builds a webinar and event platform for B2B marketing teams.,1380,United States,US,Hybrid,Series C,Zoho CRM,Snowflake;Intercom;Clay;Gong,Lukas,Moreau,Head of Revenue Operations,lukas.moreau@nimbuspointco.example\nACC-025,Willowcraft Systems,willowcraftsystems.example,B2B SaaS - Fintech,Willowcraft Systems builds invoice automation software for mid-market finance teams.,770,United States,US,Hybrid,Bootstrapped,Salesforce,Intercom;Gong;Slack;Outreach;QuickBooks,Mila,Ortiz,Director of Sales,mila.ortiz@willowcraftsystems.example\nACC-026,Quillmint,quillmint.example,Non-profit,Quillmint builds community education programs for low-income families.,222,United Kingdom,UK,Hybrid,Series A,HubSpot,Segment;QuickBooks;Snowflake,Sofia,Novak,Sales Operations Manager,sofia.novak@quillmint.example\nACC-027,Maplebeam Co,maplebeamco.example,Marketing Agency,Maplebeam Co builds paid social campaigns for local businesses.,5944,United States,US,Product-led,Bootstrapped,Spreadsheet,Gong;Apollo;Intercom;Notion;Outreach;WordPress,Mateo,Verhoeven,CEO,mateo.verhoeven@maplebeamco.example\nACC-028,Pylonlane,pylonlane.example,Hospitality,Pylonlane builds a chain of boutique hotels for leisure travellers.,2684,United Kingdom,UK,Product-led,Bootstrapped,Zoho CRM,Notion;WordPress;Slack;Intercom;LinkedIn Sales Navigator,Nils,Larsen,Director of Sales,nils.larsen@pylonlane.example\nACC-029,Harborflow,harborflow.example,Hospitality,Harborflow builds a chain of boutique hotels for leisure travellers.,4106,South Africa,Other,Sales-led,Series C,Spreadsheet,Gong;Outreach;Notion;Stripe;Segment;QuickBooks,Mateo,Mensah,CEO,mateo.mensah@harborflow.example\nACC-030,Tidalfield,tidalfield.example,B2B SaaS - Devtools,Tidalfield builds an API monitoring tool for engineering teams.,251,United Kingdom,UK,Product-led,Bootstrapped,HubSpot,Gong;Segment;Shopify,Oskar,Kowalski,VP Sales,oskar.kowalski@tidalfield.example\nACC-031,Mossflow HQ,mossflowhq.example,B2B SaaS - Martech,Mossflow HQ builds a webinar and event platform for B2B marketing teams.,972,United States,US,Hybrid,Series A,Pipedrive,Segment;Gong;Zapier;QuickBooks;Stripe,Dev,Fischer,Head of Growth,dev.fischer@mossflowhq.example\nACC-032,Saffroncraft Systems,saffroncraftsystems.example,IT Services,Saffroncraft Systems builds managed IT support for small offices.,508,Japan,Other,Product-led,Series B,HubSpot,LinkedIn Sales Navigator;Apollo;Clay;Mailchimp,Imani,Castell,Director of Sales,imani.castell@saffroncraftsystems.example\nACC-033,Zephyryard,zephyryard.example,Non-profit,Zephyryard builds community education programs for low-income families.,195,Japan,Other,Hybrid,Series B,Salesforce,Apollo;Zapier;Gong;Outreach;QuickBooks,Mila,Rahman,Sales Operations Manager,mila.rahman@zephyryard.example\nACC-034,Birchcraft Labs,birchcraftlabs.example,E-commerce Brand,Birchcraft Labs builds sustainable home goods for consumers.,94,United Kingdom,UK,Product-led,Series C,Pipedrive,Apollo;WordPress;Zapier;Stripe;Snowflake;Intercom,Jonas,Kowalski,VP Sales,jonas.kowalski@birchcraftlabs.example\nACC-035,Onyxpoint Co,onyxpointco.example,B2B SaaS - Devtools,Onyxpoint Co builds an API monitoring tool for engineering teams.,90,Sweden,EU,Hybrid,Series B,Salesforce,Snowflake;Gong;WordPress;Zapier;Mailchimp,Zara,Bauer,Sales Operations Manager,zara.bauer@onyxpointco.example\nACC-036,Fjordpoint HQ,fjordpointhq.example,B2B SaaS - HR Tech,Fjordpoint HQ builds a hiring and onboarding platform for fast-growing tech companies.,629,United States,US,Product-led,Bootstrapped,Zoho CRM,LinkedIn Sales Navigator;Notion;Stripe;Gong;Zapier;Mailchimp,Clara,Lindqvist,Head of Revenue Operations,clara.lindqvist@fjordpointhq.example\nACC-037,Umbershift Systems,umbershiftsystems.example,B2B SaaS - Logistics,Umbershift Systems builds freight visibility software for shippers and 3PLs.,964,South Africa,Other,Sales-led,Bootstrapped,Zoho CRM,Mailchimp;QuickBooks;Apollo;Snowflake;Segment;Zapier,Hana,Brennan,CRO,hana.brennan@umbershiftsystems.example\nACC-038,Nimbuspath Systems,nimbuspathsystems.example,B2B SaaS - Security,Nimbuspath Systems builds a vendor risk management platform for compliance teams.,230,United Kingdom,UK,Hybrid,Seed,HubSpot,WordPress;Segment;QuickBooks,Hana,Lindqvist,Sales Operations Manager,hana.lindqvist@nimbuspathsystems.example\nACC-039,Mossgrid HQ,mossgridhq.example,IT Services,Mossgrid HQ builds managed IT support for small offices.,9,United States,US,Product-led,Series C,Pipedrive,Mailchimp;Segment;Outreach;QuickBooks;Intercom;Shopify,Clara,Okafor,IT Manager,clara.okafor@mossgridhq.example\nACC-040,Pylonmint Labs,pylonmintlabs.example,Non-profit,Pylonmint Labs builds community education programs for low-income families.,11,United States,US,Product-led,Series C,Pipedrive,Zapier;Snowflake;Stripe,Ava,Hartmann,VP Sales,ava.hartmann@pylonmintlabs.example\nACC-041,Emberflow HQ,emberflowhq.example,B2B SaaS - Security,Emberflow HQ builds a vendor risk management platform for compliance teams.,157,United States,US,Sales-led,Series A,Salesforce,Slack;Zapier;Gong;Segment;Stripe;Snowflake,Tomas,Fischer,Director of Sales,tomas.fischer@emberflowhq.example\nACC-042,Deltapoint Labs,deltapointlabs.example,B2B SaaS - Logistics,Deltapoint Labs builds freight visibility software for shippers and 3PLs.,161,Brazil,Other,Sales-led,Series A,Pipedrive,Snowflake;Mailchimp;Shopify,Elena,Castell,Head of Growth,elena.castell@deltapointlabs.example\nACC-043,Emberline,emberline.example,B2B SaaS - HR Tech,Emberline builds a hiring and onboarding platform for fast-growing tech companies.,348,France,EU,Hybrid,Seed,HubSpot,Mailchimp;Shopify;Stripe;QuickBooks;WordPress;Zapier,Nils,Bauer,Sales Operations Manager,nils.bauer@emberline.example\nACC-044,Lumenbeam,lumenbeam.example,B2B SaaS - Devtools,Lumenbeam builds an API monitoring tool for engineering teams.,276,Ireland,EU,Sales-led,Seed,Salesforce,Outreach;Stripe;Mailchimp,Tomas,Quinn,Director of Sales,tomas.quinn@lumenbeam.example\nACC-045,Onyxbeam HQ,onyxbeamhq.example,B2B SaaS - Logistics,Onyxbeam HQ builds freight visibility software for shippers and 3PLs.,121,Ireland,EU,Sales-led,Series A,Salesforce,Clay;Gong;Segment,Leila,Rahman,VP Sales,leila.rahman@onyxbeamhq.example\nACC-046,Vesperflow,vesperflow.example,Non-profit,Vesperflow builds community education programs for low-income families.,2194,Brazil,Other,Sales-led,Bootstrapped,Spreadsheet,LinkedIn Sales Navigator;Slack;Segment;Intercom;Outreach;Apollo,Zara,Sato,CEO,zara.sato@vesperflow.example\nACC-047,Vesperpoint Labs,vesperpointlabs.example,Non-profit,Vesperpoint Labs builds community education programs for low-income families.,7663,Indonesia,Other,Product-led,Bootstrapped,Zoho CRM,LinkedIn Sales Navigator;Clay;Stripe;Zapier,Tomas,Mensah,Marketing Coordinator,tomas.mensah@vesperpointlabs.example\nACC-048,Fablewave Co,fablewaveco.example,B2B SaaS - Logistics,Fablewave Co builds freight visibility software for shippers and 3PLs.,110,United Kingdom,UK,Sales-led,Series B,Salesforce,Apollo;Intercom;Gong,Imani,Quinn,Head of Revenue Operations,imani.quinn@fablewaveco.example\nACC-049,Onyxloop,onyxloop.example,B2B SaaS - Fintech,Onyxloop builds invoice automation software for mid-market finance teams.,171,United States,US,Sales-led,Series B,HubSpot,Stripe;Apollo;Intercom,Liam,Sato,VP Sales,liam.sato@onyxloop.example\nACC-050,Vesperfield HQ,vesperfieldhq.example,B2B SaaS - Fintech,Vesperfield HQ builds invoice automation software for mid-market finance teams.,1019,Sweden,EU,Hybrid,Series B,HubSpot,Notion;LinkedIn Sales Navigator;Slack;Segment;Gong,Lukas,Brennan,Head of Growth,lukas.brennan@vesperfieldhq.example`;\nconst [header, ...lines] = CSV.trim().split('\\n');\nconst cols = header.split(',');\nconst rows = lines.map(l => Object.fromEntries(l.split(',').map((v, i) => [cols[i], v.trim()])));\nreturn rows.filter(r => !TEST_IDS.length || TEST_IDS.includes(r.account_id)).map(json => ({ json }));"
+      },
+      "id": "2bf997b2-0554-4b4a-a9b3-3e9adfb55919",
+      "name": "Get Accounts",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        448,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// n8n Code node (JavaScript), mode \"Run Once for All Items\".\n// Input 1: the account rows from \"Extract from File\" (accounts.csv).\n// signals.json is fetched by an earlier HTTP Request node named \"Get Signals\".\n// Output: one item per account with `signals` (newest first) and `top_signal`.\n\nconst signalsByDomain = $('Get Signals').first().json;\nconst runStartedAt = new Date().toISOString();\nconst runDate = runStartedAt.slice(0, 10); // used for signal decay in Score ICP\n\nreturn $input.all().map(({ json: account }) => {\n  const signals = signalsByDomain[account.domain] ?? [];\n  // Strongest signal wins; ties go to the most recent one.\n  const top = [...signals].sort(\n    (a, b) => b.strength - a.strength || b.date.localeCompare(a.date)\n  )[0];\n\n  return {\n    json: {\n      ...account,\n      employees: Number(account.employees),\n      tech_stack: String(account.tech_stack || '').split(';').filter(Boolean),\n      signals,\n      top_signal: top ? `${top.detail} (${top.date})` : null,\n      run_date: runDate,\n      run_started_at: runStartedAt,\n    },\n  };\n});\n"
+      },
+      "id": "f5aacc18-b674-42f3-ad24-0b081d3b8b5a",
+      "name": "Join Signals",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        672,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// The README numbers come from here.\nconst rows = $input.all().map(i => i.json);\nconst startedAt = $('Join Signals').first().json.run_started_at;\nconst count = (f) => rows.filter(f).length;\nconst sum = (k) => rows.reduce((s, r) => s + (r[k] || 0), 0);\nconst sims = rows.map(r => r.lookalike_similarity).filter(x => typeof x === 'number').sort((a, b) => a - b);\nconst ab = rows.filter(r => r.icp_tier === 'A' || r.icp_tier === 'B');\nreturn [{ json: {\n  accounts: rows.length,\n  tier_a: count(r => r.icp_tier === 'A'), tier_b: count(r => r.icp_tier === 'B'), tier_c: count(r => r.icp_tier === 'C'),\n  first_lines_written: ab.length,\n  qa_pass_first_try: count(r => r.qa_status === 'pass' && r.qa_attempt === 1),\n  qa_pass_after_retry: count(r => r.qa_status === 'pass' && r.qa_attempt === 2),\n  qa_needs_review: count(r => r.qa_status === 'needs_review'),\n  hubspot_created: count(r => r.hubspot_action === 'created'), hubspot_updated: count(r => r.hubspot_action === 'updated'),\n  hubspot_errors: count(r => r.hubspot_action === 'error'),\n  rows_with_errors: count(r => r.errors.length > 0),\n  similarity_min: sims[0] ?? null, similarity_median: sims.length ? sims[Math.floor(sims.length / 2)] : null, similarity_max: sims[sims.length - 1] ?? null,\n  tokens_haiku_in: sum('tokens_haiku_in'), tokens_haiku_out: sum('tokens_haiku_out'),\n  tokens_sonnet_in: sum('tokens_sonnet_in'), tokens_sonnet_out: sum('tokens_sonnet_out'),\n  run_seconds: Math.round((Date.now() - new Date(startedAt).getTime()) / 1000),\n  rows,\n} }];"
+      },
+      "id": "56210c75-1138-4da5-b580-a7c284789ac5",
+      "name": "Run Summary",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        144
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// One account per loop pass. Later nodes read it with $('Current Account').first().\nreturn $input.all();"
+      },
+      "id": "92a707da-afde-4fef-983d-16b5c469abe0",
+      "name": "Current Account",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "id": "2b87908f-bf9d-458f-b049-d4491d6d4301",
+      "name": "Loop Over Accounts",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        896,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-haiku-5-5"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Account:\n- Company: {{ $json.company_name }} ({{ $json.domain }})\n- What they do: {{ $json.description }}\n- Industry: {{ $json.industry }}\n- Employees: {{ $json.employees }}, Country: {{ $json.country }}\n- Go-to-market: {{ $json.sales_motion }}, Funding: {{ $json.funding_stage }}\n- CRM: {{ $json.crm }}, Tools: {{ $json.tech_stack.join(', ') }}\n- Signals (newest first): {{ JSON.stringify($json.signals) }}\n\nReturn exactly this JSON:\n{\n  \"what_they_do\": \"one sentence\",\n  \"why_now\": \"one sentence based on the strongest signal, or \\\"No recent signal\\\"\",\n  \"angle\": \"one sentence on which pain an outbound pipeline service would solve for them\",\n  \"embedding_text\": \"3 sentences that describe the company's industry, size, stack and situation, for similarity search\"\n}"
+            }
+          ]
+        },
+        "simplify": false,
+        "options": {
+          "system": "You are a B2B account researcher. You write short, factual briefs for a sales team.\nUse only the data given. Never invent facts, numbers, people or events.\nReply with JSON only. No markdown and no text outside the JSON.",
+          "maxTokens": 1024
+        }
+      },
+      "id": "5aa4fb24-f9e2-4e45-b2a1-ad7fafae1eed",
+      "name": "Research Brief (Haiku)",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        1344,
+        336
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "anthropicApi": {
+          "id": "REPLACE_ME",
+          "name": "Anthropic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "function textOf(r) {\n  if (!r) return '';\n  if (typeof r.merged_response === 'string') return r.merged_response;\n  if (Array.isArray(r.content)) return r.content.filter(c => c.type === 'text').map(c => c.text).join('');\n  return r.text || r.output || '';\n}\nfunction jsonOf(text) {\n  const s = text.indexOf('{'), e = text.lastIndexOf('}');\n  if (s < 0 || e <= s) return null;\n  try { return JSON.parse(text.slice(s, e + 1)); } catch (err) { return null; }\n}\n\nconst acc = $('Current Account').first().json;\nconst r = $input.first().json;\nconst errors = [];\nlet brief = jsonOf(textOf(r));\nif (r.error) errors.push('brief_api_error');\nelse if (!brief) errors.push('brief_parse_failed');\nif (!brief || !brief.embedding_text) {\n  // Fallback so the account still gets scored and written.\n  brief = { what_they_do: acc.description, why_now: acc.top_signal || 'No recent signal', angle: '',\n    embedding_text: acc.description + ' It is a ' + acc.industry + ' company with ' + acc.employees + ' employees in ' + acc.country + ', using ' + acc.crm + '.' };\n}\nreturn [{ json: { ...acc, brief, errors,\n  tokens_haiku_in: r.usage?.input_tokens || 0, tokens_haiku_out: r.usage?.output_tokens || 0 } }];"
+      },
+      "id": "2001adfb-b20a-46a7-966f-57ea17e64811",
+      "name": "Parse Brief",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1696,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "load",
+        "qdrantCollection": {
+          "__rl": true,
+          "mode": "id",
+          "value": "closed_won"
+        },
+        "prompt": "={{ $json.brief.embedding_text }}",
+        "topK": 3,
+        "options": {}
+      },
+      "id": "c9002758-24ad-4968-bd3e-79490966da97",
+      "name": "Lookalike Search",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.3,
+      "position": [
+        1920,
+        336
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "qdrantApi": {
+          "id": "REPLACE_ME",
+          "name": "Qdrant"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "4500354a-6e97-4b39-8fa4-5e2e2175f2fd",
+      "name": "Gemini Embeddings",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        1992,
+        568
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "REPLACE_ME",
+          "name": "Google Gemini"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Qdrant returns the 3 closest closed-won customers. Keep the best cosine score.\nconst acc = $('Parse Brief').first().json;\nconst hits = $input.all().map(i => i.json).filter(j => typeof j.score === 'number').sort((a, b) => b.score - a.score);\nconst errors = [...acc.errors];\nif (!hits.length) errors.push('lookalike_search_failed');\nreturn [{ json: { ...acc, errors,\n  lookalike_similarity: hits.length ? Math.round(hits[0].score * 1000) / 1000 : null,\n  lookalikes: hits.map(h => (h.document?.metadata?.company_name || '?') + ' (' + h.score.toFixed(2) + ')') } }];"
+      },
+      "id": "075c4050-07b7-4c66-b329-fcef32adeccb",
+      "name": "Top Lookalikes",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2272,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "language": "javaScript",
+        "jsCode": "// ICP fit score: firmographics (45) + signals (15) + lookalike (40) = 0-100.\n// JavaScript port of code/score_icp.py, used in the n8n Code node (\"Run Once for Each Item\")\n// because the n8n instance has no Python runner. scripts/check_score_parity.py proves both\n// versions give identical scores on all 50 accounts.\n\nconst ICP_REGIONS = ['EU', 'UK', 'US'];\nconst GOOD_CRMS = ['HubSpot', 'Salesforce'];\nconst OK_CRMS = ['Pipedrive', 'Zoho CRM'];\n\n// Lookalike: cosine similarity below SIM_FLOOR scores 0, at or above SIM_CEIL scores 40.\n// Calibrated on the first 50-account run: similarities ranged 0.649 to 0.782.\nconst SIM_FLOOR = 0.65;\nconst SIM_CEIL = 0.78;\n\nconst SIGNAL_HALF_LIFE_DAYS = 45;\n\n// Python-style round (banker's rounding) so scores match score_icp.py exactly.\nfunction pyRound(x) {\n  const r = Math.round(x);\n  return Math.abs(x % 1) === 0.5 && r % 2 !== 0 ? r - 1 : r;\n}\n\nfunction firmographicPoints(a) {\n  let pts = 0;\n  const why = [];\n  if (a.industry.startsWith('B2B SaaS')) { pts += 15; why.push('B2B SaaS (+15)'); }\n  else if (a.industry === 'IT Services') { pts += 4; why.push('IT services, adjacent (+4)'); }\n\n  const emp = parseInt(a.employees, 10);\n  if (emp >= 20 && emp <= 500) { pts += 10; why.push(emp + ' employees, in range (+10)'); }\n  else if ((emp >= 10 && emp < 20) || (emp > 500 && emp <= 1000)) { pts += 5; why.push(emp + ' employees, near range (+5)'); }\n\n  if (ICP_REGIONS.includes(a.region)) { pts += 10; why.push(a.region + ' region (+10)'); }\n\n  if (GOOD_CRMS.includes(a.crm)) { pts += 7; why.push('uses ' + a.crm + ' (+7)'); }\n  else if (OK_CRMS.includes(a.crm)) { pts += 3; why.push('uses ' + a.crm + ' (+3)'); }\n\n  if (a.sales_motion === 'Sales-led' || a.sales_motion === 'Hybrid') { pts += 3; why.push(a.sales_motion + ' motion (+3)'); }\n  return [pts, why];\n}\n\nfunction dayNumber(iso) {\n  return Math.round(Date.parse(iso.slice(0, 10) + 'T00:00:00Z') / 86400000);\n}\n\nfunction signalPoints(signals, today) {\n  let raw = 0;\n  const why = [];\n  for (const s of signals) {\n    const age = Math.max(0, dayNumber(today) - dayNumber(s.date));\n    const value = s.strength * 5 * Math.pow(0.5, age / SIGNAL_HALF_LIFE_DAYS);\n    raw += value;\n    why.push(s.detail + ', ' + age + 'd ago (+' + value.toFixed(1) + ')');\n  }\n  return [Math.min(15, pyRound(raw)), why];\n}\n\nfunction lookalikePoints(similarity) {\n  if (similarity === null || similarity === undefined) return 0;\n  const x = (similarity - SIM_FLOOR) / (SIM_CEIL - SIM_FLOOR);\n  return pyRound(40 * Math.max(0, Math.min(1, x)));\n}\n\nfunction tier(score) {\n  return score >= 70 ? 'A' : score >= 45 ? 'B' : 'C';\n}\n\nfunction scoreAccount(a, signals, similarity, today) {\n  const [fPts, fWhy] = firmographicPoints(a);\n  const [sPts, sWhy] = signalPoints(signals, today);\n  const lPts = lookalikePoints(similarity);\n  const total = fPts + sPts + lPts;\n  const reasons = [...fWhy, ...sWhy];\n  if (similarity !== null && similarity !== undefined) {\n    reasons.push('lookalike similarity ' + similarity.toFixed(2) + ' (+' + lPts + ')');\n  }\n  return {\n    icp_score: total,\n    icp_tier: tier(total),\n    score_firmographic: fPts,\n    score_signals: sPts,\n    score_lookalike: lPts,\n    score_reasons: reasons,\n  };\n}\n\n// ---- n8n wrapper (Code node, \"Run Once for Each Item\"). `run_date` comes from Join Signals.\nif (typeof $input !== 'undefined') {\n  const a = $input.item.json;\n  return { json: { ...a, ...scoreAccount(a, a.signals || [], a.lookalike_similarity, a.run_date) } };\n}\n\nmodule.exports = { scoreAccount };\n"
+      },
+      "id": "7d7431ab-b840-4d08-9c28-ed2808dda667",
+      "name": "Score ICP",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        2496,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.icp_tier }}",
+              "rightValue": "C",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "57226fa2-d0a5-4c58-9287-cb5bb5ad2e62",
+      "name": "Tier A or B?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        2720,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-sonnet-5-5"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Contact: {{ $json.contact_first_name }}, {{ $json.contact_title }} at {{ $json.company_name }}\nWhat they do: {{ $json.brief.what_they_do }}\nWhy now: {{ $json.brief.why_now }}\nAngle: {{ $json.brief.angle }}\nTop signal: {{ $json.top_signal }}\n{{ $json.qa_errors && $json.qa_errors.length ? 'Your last attempt failed QA for: ' + $json.qa_errors.join('; ') + '. Fix these.' : '' }}"
+            }
+          ]
+        },
+        "simplify": false,
+        "options": {
+          "system": "You write the first line of a cold email to a B2B sales leader.\nRules:\n- One sentence, 25 words or fewer.\n- Tie it to the specific signal and the company by name.\n- Plain and specific. No greeting, no flattery, no exclamation marks.\n- Never use: \"I hope this finds you\", \"I came across\", \"quick question\", \"touch base\".\n- Use only the facts given. Never invent numbers or events.\nReply with JSON only: {\"first_line\": \"...\"}",
+          "maxTokens": 1024
+        }
+      },
+      "id": "4d08001e-434c-45c5-a215-a41f50ff8b6f",
+      "name": "First Line (Sonnet)",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        2944,
+        272
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "anthropicApi": {
+          "id": "REPLACE_ME",
+          "name": "Anthropic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "return { json: { ...$input.item.json, first_line: '', qa_status: 'skipped', qa_errors: [], qa_attempt: 0 } };"
+      },
+      "id": "20798b7e-104f-4a45-8517-2c9c4ccb2dd8",
+      "name": "Skip First Line (Tier C)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4544,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "function textOf(r) {\n  if (!r) return '';\n  if (typeof r.merged_response === 'string') return r.merged_response;\n  if (Array.isArray(r.content)) return r.content.filter(c => c.type === 'text').map(c => c.text).join('');\n  return r.text || r.output || '';\n}\nfunction jsonOf(text) {\n  const s = text.indexOf('{'), e = text.lastIndexOf('}');\n  if (s < 0 || e <= s) return null;\n  try { return JSON.parse(text.slice(s, e + 1)); } catch (err) { return null; }\n}\n\nconst acc = $('Score ICP').first().json;\nconst r = $input.first().json;\nconst parsed = jsonOf(textOf(r));\nconst errors = [...(acc.errors || [])];\nif (r.error) errors.push('first_line_api_error_attempt_1');\nreturn [{ json: { ...acc, errors, first_line: parsed?.first_line || '', qa_attempt: 1,\n  tokens_sonnet_in: (acc.tokens_sonnet_in || 0) + (r.usage?.input_tokens || 0),\n  tokens_sonnet_out: (acc.tokens_sonnet_out || 0) + (r.usage?.output_tokens || 0) } }];"
+      },
+      "id": "dd99f89e-d4c7-46b2-8a94-417e500c8f42",
+      "name": "Parse First Line",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3296,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// QA gate for the AI-written first line. Runs before anything is written to the CRM.\n// n8n Code node (JavaScript), mode \"Run Once for Each Item\".\n// Expects on the item: company_name, top_signal, first_line, and qa_attempt (1 or 2).\n// Output: the item plus qa_status (\"pass\" | \"retry\" | \"needs_review\") and qa_errors[].\n// Route \"retry\" back to the first-line writer once. Then \"needs_review\" goes to the CRM flagged.\n\nconst MAX_WORDS = 25;\n\nconst PLACEHOLDER_PATTERNS = [\n  /\\{\\{.*?\\}\\}/,          // unrendered template tags\n  /\\[[A-Z][^\\]]*\\]/,      // [Company], [First Name]\n  /<[^>]+>/,              // <company>\n  /\\b(undefined|null|NaN)\\b/,\n  /\\bTODO\\b|\\bTBD\\b|lorem ipsum/i,\n];\n\nconst BANNED_PHRASES = [\n  'hope this finds you', 'i came across', 'i noticed that you', 'quick question',\n  'touch base', 'synergy', 'game-changer', 'revolutionize', 'as an ai',\n  'i wanted to reach out',\n];\n\nfunction check(item) {\n  const line = String(item.first_line ?? '').trim();\n  const errors = [];\n\n  if (!line) errors.push('empty');\n  for (const re of PLACEHOLDER_PATTERNS) {\n    if (re.test(line)) errors.push(`placeholder: ${line.match(re)[0]}`);\n  }\n  const words = line.split(/\\s+/).filter(Boolean).length;\n  if (words > MAX_WORDS) errors.push(`too long: ${words} words`);\n\n  const lower = line.toLowerCase();\n  for (const p of BANNED_PHRASES) if (lower.includes(p)) errors.push(`banned phrase: \"${p}\"`);\n\n  // Must reference the company or something concrete from the signal.\n  const company = String(item.company_name ?? '').toLowerCase().replace(/ (labs|hq|systems|co)$/, '');\n  const signalWords = String(item.top_signal ?? '')\n    .toLowerCase()\n    .replace(/\\(.*?\\)/g, '')\n    .split(/\\W+/)\n    .filter((w) => w.length > 4);\n  const mentionsCompany = company && lower.includes(company);\n  const mentionsSignal = signalWords.some((w) => lower.includes(w));\n  if (!mentionsCompany && !mentionsSignal) errors.push('no company or signal reference');\n\n  if ((line.match(/!/g) || []).length > 1) errors.push('too many exclamation marks');\n  if (/^(hi|hey|hello|dear)\\b/i.test(line)) errors.push('starts with a greeting');\n\n  return errors;\n}\n\nconst item = $input.item.json;\nconst errors = check(item);\nconst attempt = Number(item.qa_attempt ?? 1);\n\nreturn {\n  json: {\n    ...item,\n    qa_errors: errors,\n    qa_status: errors.length === 0 ? 'pass' : attempt < 2 ? 'retry' : 'needs_review',\n    qa_attempt: attempt,\n  },\n};\n"
+      },
+      "id": "75524801-929f-4624-8b25-830e6ae58901",
+      "name": "QA Check",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        3520,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "combinator": "and",
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "leftValue": "={{ $json.qa_status }}",
+              "rightValue": "retry",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "c1697890-1793-461f-96da-36f9ed94d789",
+      "name": "Retry?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        3744,
+        272
+      ]
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "id",
+          "value": "claude-sonnet-5-5"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Contact: {{ $json.contact_first_name }}, {{ $json.contact_title }} at {{ $json.company_name }}\nWhat they do: {{ $json.brief.what_they_do }}\nWhy now: {{ $json.brief.why_now }}\nAngle: {{ $json.brief.angle }}\nTop signal: {{ $json.top_signal }}\n{{ $json.qa_errors && $json.qa_errors.length ? 'Your last attempt failed QA for: ' + $json.qa_errors.join('; ') + '. Fix these.' : '' }}"
+            }
+          ]
+        },
+        "simplify": false,
+        "options": {
+          "system": "You write the first line of a cold email to a B2B sales leader.\nRules:\n- One sentence, 25 words or fewer.\n- Tie it to the specific signal and the company by name.\n- Plain and specific. No greeting, no flattery, no exclamation marks.\n- Never use: \"I hope this finds you\", \"I came across\", \"quick question\", \"touch base\".\n- Use only the facts given. Never invent numbers or events.\nReply with JSON only: {\"first_line\": \"...\"}",
+          "maxTokens": 1024
+        }
+      },
+      "id": "90d81eae-fe6a-43d9-b2e7-afe6a544d657",
+      "name": "First Line Retry (Sonnet)",
+      "type": "@n8n/n8n-nodes-langchain.anthropic",
+      "typeVersion": 1,
+      "position": [
+        3968,
+        192
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "anthropicApi": {
+          "id": "REPLACE_ME",
+          "name": "Anthropic"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// All three paths (pass / needs_review / tier C) meet here before the CRM write.\nreturn $input.all();"
+      },
+      "id": "5054a3b6-725a-4a2e-8d69-1a742acc6172",
+      "name": "Final Record",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4768,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "function textOf(r) {\n  if (!r) return '';\n  if (typeof r.merged_response === 'string') return r.merged_response;\n  if (Array.isArray(r.content)) return r.content.filter(c => c.type === 'text').map(c => c.text).join('');\n  return r.text || r.output || '';\n}\nfunction jsonOf(text) {\n  const s = text.indexOf('{'), e = text.lastIndexOf('}');\n  if (s < 0 || e <= s) return null;\n  try { return JSON.parse(text.slice(s, e + 1)); } catch (err) { return null; }\n}\n\nconst acc = $('QA Check').first().json;\nconst r = $input.first().json;\nconst parsed = jsonOf(textOf(r));\nconst errors = [...(acc.errors || [])];\nif (r.error) errors.push('first_line_api_error_attempt_2');\nreturn [{ json: { ...acc, errors, first_line: parsed?.first_line || '', qa_attempt: 2,\n  tokens_sonnet_in: (acc.tokens_sonnet_in || 0) + (r.usage?.input_tokens || 0),\n  tokens_sonnet_out: (acc.tokens_sonnet_out || 0) + (r.usage?.output_tokens || 0) } }];"
+      },
+      "id": "28f36bdc-2c5a-4a52-a8cc-7a2a132de1f1",
+      "name": "Parse Retry Line",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4320,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "// QA gate for the AI-written first line. Runs before anything is written to the CRM.\n// n8n Code node (JavaScript), mode \"Run Once for Each Item\".\n// Expects on the item: company_name, top_signal, first_line, and qa_attempt (1 or 2).\n// Output: the item plus qa_status (\"pass\" | \"retry\" | \"needs_review\") and qa_errors[].\n// Route \"retry\" back to the first-line writer once. Then \"needs_review\" goes to the CRM flagged.\n\nconst MAX_WORDS = 25;\n\nconst PLACEHOLDER_PATTERNS = [\n  /\\{\\{.*?\\}\\}/,          // unrendered template tags\n  /\\[[A-Z][^\\]]*\\]/,      // [Company], [First Name]\n  /<[^>]+>/,              // <company>\n  /\\b(undefined|null|NaN)\\b/,\n  /\\bTODO\\b|\\bTBD\\b|lorem ipsum/i,\n];\n\nconst BANNED_PHRASES = [\n  'hope this finds you', 'i came across', 'i noticed that you', 'quick question',\n  'touch base', 'synergy', 'game-changer', 'revolutionize', 'as an ai',\n  'i wanted to reach out',\n];\n\nfunction check(item) {\n  const line = String(item.first_line ?? '').trim();\n  const errors = [];\n\n  if (!line) errors.push('empty');\n  for (const re of PLACEHOLDER_PATTERNS) {\n    if (re.test(line)) errors.push(`placeholder: ${line.match(re)[0]}`);\n  }\n  const words = line.split(/\\s+/).filter(Boolean).length;\n  if (words > MAX_WORDS) errors.push(`too long: ${words} words`);\n\n  const lower = line.toLowerCase();\n  for (const p of BANNED_PHRASES) if (lower.includes(p)) errors.push(`banned phrase: \"${p}\"`);\n\n  // Must reference the company or something concrete from the signal.\n  const company = String(item.company_name ?? '').toLowerCase().replace(/ (labs|hq|systems|co)$/, '');\n  const signalWords = String(item.top_signal ?? '')\n    .toLowerCase()\n    .replace(/\\(.*?\\)/g, '')\n    .split(/\\W+/)\n    .filter((w) => w.length > 4);\n  const mentionsCompany = company && lower.includes(company);\n  const mentionsSignal = signalWords.some((w) => lower.includes(w));\n  if (!mentionsCompany && !mentionsSignal) errors.push('no company or signal reference');\n\n  if ((line.match(/!/g) || []).length > 1) errors.push('too many exclamation marks');\n  if (/^(hi|hey|hello|dear)\\b/i.test(line)) errors.push('starts with a greeting');\n\n  return errors;\n}\n\nconst item = $input.item.json;\nconst errors = check(item);\nconst attempt = Number(item.qa_attempt ?? 1);\n\nreturn {\n  json: {\n    ...item,\n    qa_errors: errors,\n    qa_status: errors.length === 0 ? 'pass' : attempt < 2 ? 'retry' : 'needs_review',\n    qa_attempt: attempt,\n  },\n};\n"
+      },
+      "id": "9e785039-cdfd-42cc-b4b0-7ca3948e9208",
+      "name": "QA Check (Retry)",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        4544,
+        192
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.hubapi.com/crm/v3/objects/companies/search",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "hubspotAppToken",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ filterGroups: [{ filters: [{ propertyName: 'domain', operator: 'EQ', value: $json.domain }] }], properties: ['domain'], limit: 1 }) }}",
+        "options": {}
+      },
+      "id": "5b329dbd-a8ea-4716-b8db-eb886fe93ea2",
+      "name": "HubSpot Find by Domain",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        4992,
+        336
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "hubspotAppToken": {
+          "id": "REPLACE_ME",
+          "name": "HubSpot service key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const acc = $('Final Record').first().json;\nconst found = $input.first().json;\nconst hubspotId = found?.results?.[0]?.id ?? null;\nconst b = acc.brief || {};\nconst qa = acc.qa_status === 'pass' || acc.qa_status === 'skipped' ? acc.qa_status : 'needs_review';\nconst properties = {\n  name: acc.company_name,\n  domain: acc.domain,\n  numberofemployees: acc.employees,\n  country: acc.country,\n  description: acc.description,\n  ara_icp_score: acc.icp_score,\n  ara_icp_tier: acc.icp_tier,\n  ara_top_signal: (acc.top_signal || 'No signal').slice(0, 250),\n  ara_first_line: acc.first_line || '',\n  ara_research_brief: ['What they do: ' + (b.what_they_do || ''), 'Why now: ' + (b.why_now || ''), 'Angle: ' + (b.angle || '')].join('\\n'),\n  ara_score_reasons: (acc.score_reasons || []).concat(acc.lookalikes?.length ? ['Closest customers: ' + acc.lookalikes.join(', ')] : []).join('\\n'),\n  ara_qa_status: qa,\n};\nreturn [{ json: { hubspot_id: hubspotId, properties } }];"
+      },
+      "id": "c48acfd7-99bd-4344-b369-a19748119261",
+      "name": "Build HubSpot Payload",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5216,
+        336
+      ]
+    },
+    {
+      "parameters": {
+        "method": "={{ $json.hubspot_id ? 'PATCH' : 'POST' }}",
+        "url": "={{ 'https://api.hubapi.com/crm/v3/objects/companies' + ($json.hubspot_id ? '/' + $json.hubspot_id : '') }}",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "hubspotAppToken",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ properties: $json.properties }) }}",
+        "options": {}
+      },
+      "id": "23b96772-b35e-4bf4-81c1-a618a8738d49",
+      "name": "HubSpot Create or Update",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        5440,
+        336
+      ],
+      "retryOnFail": true,
+      "maxTries": 3,
+      "waitBetweenTries": 3000,
+      "onError": "continueRegularOutput",
+      "credentials": {
+        "hubspotAppToken": {
+          "id": "REPLACE_ME",
+          "name": "HubSpot service key"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// A compact row per account. These rows feed the Run Summary.\nconst acc = $('Final Record').first().json;\nconst pay = $('Build HubSpot Payload').first().json;\nconst r = $input.first().json;\nconst errors = [...(acc.errors || [])];\nif (r.error || !r.id) errors.push('hubspot_write_failed');\nreturn [{ json: {\n  account_id: acc.account_id, company_name: acc.company_name, domain: acc.domain,\n  icp_score: acc.icp_score, icp_tier: acc.icp_tier,\n  score_firmographic: acc.score_firmographic, score_signals: acc.score_signals, score_lookalike: acc.score_lookalike,\n  lookalike_similarity: acc.lookalike_similarity, lookalikes: acc.lookalikes, top_signal: acc.top_signal,\n  why_now: acc.brief?.why_now, first_line: acc.first_line, qa_status: acc.qa_status, qa_attempt: acc.qa_attempt, qa_errors: acc.qa_errors,\n  hubspot_id: r.id || pay.hubspot_id, hubspot_action: r.error || !r.id ? 'error' : pay.hubspot_id ? 'updated' : 'created',\n  tokens_haiku_in: acc.tokens_haiku_in || 0, tokens_haiku_out: acc.tokens_haiku_out || 0,\n  tokens_sonnet_in: acc.tokens_sonnet_in || 0, tokens_sonnet_out: acc.tokens_sonnet_out || 0,\n  errors,\n} }];"
+      },
+      "id": "423c1b8a-bf4a-46ed-b2e0-b257127bfc0d",
+      "name": "Record Result",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        5664,
+        528
+      ]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Get Signals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Signals": {
+      "main": [
+        [
+          {
+            "node": "Get Accounts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Accounts": {
+      "main": [
+        [
+          {
+            "node": "Join Signals",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Join Signals": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Accounts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Current Account": {
+      "main": [
+        [
+          {
+            "node": "Research Brief (Haiku)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Accounts": {
+      "main": [
+        [
+          {
+            "node": "Run Summary",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Current Account",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Research Brief (Haiku)": {
+      "main": [
+        [
+          {
+            "node": "Parse Brief",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Brief": {
+      "main": [
+        [
+          {
+            "node": "Lookalike Search",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Lookalike Search": {
+      "main": [
+        [
+          {
+            "node": "Top Lookalikes",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Embeddings": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Lookalike Search",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Top Lookalikes": {
+      "main": [
+        [
+          {
+            "node": "Score ICP",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tier A or B?": {
+      "main": [
+        [
+          {
+            "node": "First Line (Sonnet)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Skip First Line (Tier C)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "First Line (Sonnet)": {
+      "main": [
+        [
+          {
+            "node": "Parse First Line",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Skip First Line (Tier C)": {
+      "main": [
+        [
+          {
+            "node": "Final Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse First Line": {
+      "main": [
+        [
+          {
+            "node": "QA Check",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "QA Check": {
+      "main": [
+        [
+          {
+            "node": "Retry?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Retry?": {
+      "main": [
+        [
+          {
+            "node": "First Line Retry (Sonnet)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Final Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "First Line Retry (Sonnet)": {
+      "main": [
+        [
+          {
+            "node": "Parse Retry Line",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Final Record": {
+      "main": [
+        [
+          {
+            "node": "HubSpot Find by Domain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Retry Line": {
+      "main": [
+        [
+          {
+            "node": "QA Check (Retry)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "QA Check (Retry)": {
+      "main": [
+        [
+          {
+            "node": "Final Record",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Find by Domain": {
+      "main": [
+        [
+          {
+            "node": "Build HubSpot Payload",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build HubSpot Payload": {
+      "main": [
+        [
+          {
+            "node": "HubSpot Create or Update",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HubSpot Create or Update": {
+      "main": [
+        [
+          {
+            "node": "Record Result",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Record Result": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Accounts",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Score ICP": {
+      "main": [
+        [
+          {
+            "node": "Tier A or B?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}

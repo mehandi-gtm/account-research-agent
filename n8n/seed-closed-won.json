@@ -1,0 +1,169 @@
+{
+  "name": "ARA - Seed closed-won",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "8c77ef26-5c29-430e-9630-f3043cc20319",
+      "name": "Start",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// 15 fictional closed-won customers (same as data/closed_won.csv in the repo).\nconst rows = [{\"customer_id\":\"CW-001\",\"company_name\":\"Granitestack\",\"domain\":\"granitestack.example\",\"industry\":\"B2B SaaS - Devtools\",\"description\":\"Granitestack builds an API monitoring tool for engineering teams.\",\"employees\":303,\"region\":\"EU\",\"sales_motion\":\"Hybrid\",\"crm\":\"Salesforce\",\"tech_stack\":\"Stripe;Segment;WordPress;Shopify\",\"why_won\":\"Moved to a new CRM and needed clean data plus enrichment\",\"deal_size_usd\":\"6000\"},{\"customer_id\":\"CW-002\",\"company_name\":\"Fjordbase Labs\",\"domain\":\"fjordbaselabs.example\",\"industry\":\"B2B SaaS - Martech\",\"description\":\"Fjordbase Labs builds a webinar and event platform for B2B marketing teams.\",\"employees\":420,\"region\":\"US\",\"sales_motion\":\"Sales-led\",\"crm\":\"Salesforce\",\"tech_stack\":\"LinkedIn Sales Navigator;Mailchimp;Shopify;Notion;Intercom;Gong\",\"why_won\":\"Series A board asked for a repeatable outbound motion\",\"deal_size_usd\":\"24000\"},{\"customer_id\":\"CW-003\",\"company_name\":\"Larkforge HQ\",\"domain\":\"larkforgehq.example\",\"industry\":\"B2B SaaS - Devtools\",\"description\":\"Larkforge HQ builds an API monitoring tool for engineering teams.\",\"employees\":204,\"region\":\"US\",\"sales_motion\":\"Sales-led\",\"crm\":\"HubSpot\",\"tech_stack\":\"WordPress;Outreach;LinkedIn Sales Navigator;Zapier;Segment;Shopify\",\"why_won\":\"Expanding into Europe and needed account research at scale\",\"deal_size_usd\":\"18000\"},{\"customer_id\":\"CW-004\",\"company_name\":\"Indigostack\",\"domain\":\"indigostack.example\",\"industry\":\"B2B SaaS - Security\",\"description\":\"Indigostack builds a vendor risk management platform for compliance teams.\",\"employees\":366,\"region\":\"US\",\"sales_motion\":\"Sales-led\",\"crm\":\"Salesforce\",\"tech_stack\":\"Intercom;WordPress;Stripe\",\"why_won\":\"SDR team doubled and lead routing broke\",\"deal_size_usd\":\"6000\"},{\"customer_id\":\"CW-005\",\"company_name\":\"Harborbase\",\"domain\":\"harborbase.example\",\"industry\":\"B2B SaaS - Martech\",\"description\":\"Harborbase builds a webinar and event platform for B2B marketing teams.\",\"employees\":330,\"region\":\"US\",\"sales_motion\":\"Hybrid\",\"crm\":\"HubSpot\",\"tech_stack\":\"Mailchimp;Shopify;Gong;Stripe;Outreach\",\"why_won\":\"Moved to a new CRM and needed clean data plus enrichment\",\"deal_size_usd\":\"12000\"},{\"customer_id\":\"CW-006\",\"company_name\":\"Harborpath\",\"domain\":\"harborpath.example\",\"industry\":\"B2B SaaS - Security\",\"description\":\"Harborpath builds a vendor risk management platform for compliance teams.\",\"employees\":135,\"region\":\"US\",\"sales_motion\":\"Hybrid\",\"crm\":\"Salesforce\",\"tech_stack\":\"Notion;LinkedIn Sales Navigator;Zapier;Apollo;Stripe\",\"why_won\":\"SDR team doubled and lead routing broke\",\"deal_size_usd\":\"6000\"},{\"customer_id\":\"CW-007\",\"company_name\":\"Emberfield Labs\",\"domain\":\"emberfieldlabs.example\",\"industry\":\"B2B SaaS - HR Tech\",\"description\":\"Emberfield Labs builds a hiring and onboarding platform for fast-growing tech companies.\",\"employees\":405,\"region\":\"US\",\"sales_motion\":\"Sales-led\",\"crm\":\"Salesforce\",\"tech_stack\":\"Outreach;Notion;Mailchimp;Intercom;Shopify\",\"why_won\":\"Moved to a new CRM and needed clean data plus enrichment\",\"deal_size_usd\":\"24000\"},{\"customer_id\":\"CW-008\",\"company_name\":\"Fjordgrid\",\"domain\":\"fjordgrid.example\",\"industry\":\"B2B SaaS - Data\",\"description\":\"Fjordgrid builds a customer data platform for product-led SaaS companies.\",\"employees\":292,\"region\":\"UK\",\"sales_motion\":\"Sales-led\",\"crm\":\"HubSpot\",\"tech_stack\":\"Outreach;Gong;Intercom;Snowflake\",\"why_won\":\"Expanding into Europe and needed account research at scale\",\"deal_size_usd\":\"18000\"},{\"customer_id\":\"CW-009\",\"company_name\":\"Copperyard Co\",\"domain\":\"copperyardco.example\",\"industry\":\"B2B SaaS - Logistics\",\"description\":\"Copperyard Co builds freight visibility software for shippers and 3PLs.\",\"employees\":77,\"region\":\"EU\",\"sales_motion\":\"Sales-led\",\"crm\":\"HubSpot\",\"tech_stack\":\"Intercom;Mailchimp;WordPress;Shopify;Notion\",\"why_won\":\"SDR team doubled and lead routing broke\",\"deal_size_usd\":\"18000\"},{\"customer_id\":\"CW-010\",\"company_name\":\"Quillstack Co\",\"domain\":\"quillstackco.example\",\"industry\":\"B2B SaaS - Fintech\",\"description\":\"Quillstack Co builds invoice automation software for mid-market finance teams.\",\"employees\":305,\"region\":\"EU\",\"sales_motion\":\"Sales-led\",\"crm\":\"HubSpot\",\"tech_stack\":\"LinkedIn Sales Navigator;Notion;Intercom;Gong\",\"why_won\":\"Moved to a new CRM and needed clean data plus enrichment\",\"deal_size_usd\":\"9000\"},{\"customer_id\":\"CW-011\",\"company_name\":\"Umbercraft HQ\",\"domain\":\"umbercrafthq.example\",\"industry\":\"B2B SaaS - Logistics\",\"description\":\"Umbercraft HQ builds freight visibility software for shippers and 3PLs.\",\"employees\":87,\"region\":\"EU\",\"sales_motion\":\"Hybrid\",\"crm\":\"HubSpot\",\"tech_stack\":\"Gong;WordPress;Mailchimp;Slack;QuickBooks\",\"why_won\":\"Moved to a new CRM and needed clean data plus enrichment\",\"deal_size_usd\":\"9000\"},{\"customer_id\":\"CW-012\",\"company_name\":\"Copperyard HQ\",\"domain\":\"copperyardhq.example\",\"industry\":\"B2B SaaS - Security\",\"description\":\"Copperyard HQ builds a vendor risk management platform for compliance teams.\",\"employees\":55,\"region\":\"EU\",\"sales_motion\":\"Hybrid\",\"crm\":\"Salesforce\",\"tech_stack\":\"Zapier;Shopify;Mailchimp;Clay;Snowflake;Intercom\",\"why_won\":\"SDR team doubled and lead routing broke\",\"deal_size_usd\":\"18000\"},{\"customer_id\":\"CW-013\",\"company_name\":\"Nimbuslane Labs\",\"domain\":\"nimbuslanelabs.example\",\"industry\":\"B2B SaaS - HR Tech\",\"description\":\"Nimbuslane Labs builds a hiring and onboarding platform for fast-growing tech companies.\",\"employees\":214,\"region\":\"EU\",\"sales_motion\":\"Sales-led\",\"crm\":\"HubSpot\",\"tech_stack\":\"Intercom;Shopify;Segment;Notion;Mailchimp;Gong\",\"why_won\":\"New sales leader needed pipeline visibility in the first 90 days\",\"deal_size_usd\":\"12000\"},{\"customer_id\":\"CW-014\",\"company_name\":\"Onyxpoint\",\"domain\":\"onyxpoint.example\",\"industry\":\"B2B SaaS - Fintech\",\"description\":\"Onyxpoint builds invoice automation software for mid-market finance teams.\",\"employees\":65,\"region\":\"EU\",\"sales_motion\":\"Sales-led\",\"crm\":\"Salesforce\",\"tech_stack\":\"Clay;Apollo;Shopify;Outreach;Zapier\",\"why_won\":\"Moved to a new CRM and needed clean data plus enrichment\",\"deal_size_usd\":\"18000\"},{\"customer_id\":\"CW-015\",\"company_name\":\"Amberfield Labs\",\"domain\":\"amberfieldlabs.example\",\"industry\":\"B2B SaaS - Logistics\",\"description\":\"Amberfield Labs builds freight visibility software for shippers and 3PLs.\",\"employees\":274,\"region\":\"EU\",\"sales_motion\":\"Sales-led\",\"crm\":\"HubSpot\",\"tech_stack\":\"QuickBooks;Stripe;WordPress;Clay;Shopify\",\"why_won\":\"New sales leader needed pipeline visibility in the first 90 days\",\"deal_size_usd\":\"6000\"}];\n\n// Same shape as the research brief's embedding_text, so seed and search vectors are comparable.\n// The company name is left out on purpose: it adds noise to similarity.\nreturn rows.map(r => ({\n  json: {\n    ...r,\n    text: [\n      r.description.replace(r.company_name, 'The company'),\n      `It is a ${r.industry} company with ${r.employees} employees in the ${r.region}, ${r.sales_motion.toLowerCase()} go-to-market, using ${r.crm} and ${r.tech_stack.split(';').join(', ')}.`,\n      `Situation: ${r.why_won}.`\n    ].join(' ')\n  }\n}));"
+      },
+      "id": "e99b076d-a3e2-49f3-8639-0209139d8351",
+      "name": "Closed-won Customers",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        224,
+        112
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "insert",
+        "qdrantCollection": {
+          "__rl": true,
+          "mode": "id",
+          "value": "closed_won"
+        },
+        "options": {}
+      },
+      "id": "3438629d-76e0-4428-8c60-02704b7b71cf",
+      "name": "Qdrant closed_won",
+      "type": "@n8n/n8n-nodes-langchain.vectorStoreQdrant",
+      "typeVersion": 1.3,
+      "position": [
+        448,
+        112
+      ],
+      "credentials": {
+        "qdrantApi": {
+          "id": "REPLACE_ME",
+          "name": "Qdrant"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "id": "7e732b6a-8c4f-49f5-a7ed-29f57957807e",
+      "name": "Gemini Embeddings",
+      "type": "@n8n/n8n-nodes-langchain.embeddingsGoogleGemini",
+      "typeVersion": 1,
+      "position": [
+        464,
+        336
+      ],
+      "credentials": {
+        "googlePalmApi": {
+          "id": "REPLACE_ME",
+          "name": "Google Gemini"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsonMode": "expressionData",
+        "jsonData": "={{ $json.text }}",
+        "options": {
+          "metadata": {
+            "metadataValues": [
+              {
+                "name": "customer_id",
+                "value": "={{ $json.customer_id }}"
+              },
+              {
+                "name": "company_name",
+                "value": "={{ $json.company_name }}"
+              },
+              {
+                "name": "why_won",
+                "value": "={{ $json.why_won }}"
+              }
+            ]
+          }
+        }
+      },
+      "id": "2e66f634-1fbf-48a2-b496-10cdb088c693",
+      "name": "Customer Document",
+      "type": "@n8n/n8n-nodes-langchain.documentDefaultDataLoader",
+      "typeVersion": 1.1,
+      "position": [
+        656,
+        320
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Seed: run once\nEmbeds 15 fictional closed-won customers into the Qdrant collection `closed_won` (Gemini embeddings).\n\nRe-running adds duplicates. To re-seed, delete the collection in the Qdrant dashboard first.",
+        "height": 224,
+        "width": 512,
+        "color": 4
+      },
+      "id": "8f95e1da-bb66-4658-909d-50ed6734e69f",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        208,
+        -128
+      ]
+    }
+  ],
+  "connections": {
+    "Start": {
+      "main": [
+        [
+          {
+            "node": "Closed-won Customers",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Closed-won Customers": {
+      "main": [
+        [
+          {
+            "node": "Qdrant closed_won",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Gemini Embeddings": {
+      "ai_embedding": [
+        [
+          {
+            "node": "Qdrant closed_won",
+            "type": "ai_embedding",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Customer Document": {
+      "ai_document": [
+        [
+          {
+            "node": "Qdrant closed_won",
+            "type": "ai_document",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
